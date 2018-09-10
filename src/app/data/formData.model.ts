@@ -7,6 +7,11 @@ export class FormData {
     city: string = '';
     state: string = '';
     zip: string = '';
+    telegramId: string = '';
+    whatsAppNumber: string = '';
+    phoneNumber: Int32Array;
+    dateOfBirth: Date;
+
 
     clear() {
         this.firstName = '';
@@ -23,6 +28,10 @@ export class FormData {
 export class Personal {
     firstName: string = '';
     lastName : string = '';
+    telegramId: string = '';
+    whatsAppNumber: string = '';
+    phoneNumber: Int32Array;
+    dateOfBirth: Date;
     email: string = '';
 }
 

@@ -20,7 +20,11 @@ export class FormDataService {
         var personal: Personal = {
             firstName: this.formData.firstName,
             lastName: this.formData.lastName,
-            email: this.formData.email
+            email: this.formData.email,
+            whatsAppNumber:this.formData.whatsAppNumber,
+            telegramId:this.formData.telegramId,
+            phoneNumber:this.formData.phoneNumber,
+            dateOfBirth:this.formData.dateOfBirth
         };
         return personal;
     }
