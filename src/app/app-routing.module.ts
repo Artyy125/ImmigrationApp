@@ -8,20 +8,23 @@ import { ResultComponent }      from './result/result.component';
 
 import { WorkflowGuard }        from './workflow/workflow-guard.service';
 import { WorkflowService }      from './workflow/workflow.service';
+import { EducationComponent } from './education/education.component';
 
 
 export const appRoutes: Routes = [
     // 1st Route
     { path: 'personal',  component: PersonalComponent },
     // 2nd Route
-    { path: 'work',  component: WorkComponent, canActivate: [WorkflowGuard] },
+    { path: 'education',  component: EducationComponent,canActivate: [WorkflowGuard] },
     // 3rd Route
+    { path: 'work',  component: WorkComponent, canActivate: [WorkflowGuard] },
+    // 4rd Route
     { path: 'address',  component: AddressComponent, canActivate: [WorkflowGuard] },
-    // 4th Route
-    { path: 'result',  component: ResultComponent, canActivate: [WorkflowGuard] },
     // 5th Route
-    { path: '',   redirectTo: '/personal', pathMatch: 'full' },
+    { path: 'result',  component: ResultComponent, canActivate: [WorkflowGuard] },
     // 6th Route
+    { path: '',   redirectTo: '/personal', pathMatch: 'full' },
+    // 7th Route
     { path: '**', component: PersonalComponent }
 ];
 

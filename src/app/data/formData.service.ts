@@ -1,6 +1,6 @@
 import { Injectable }                        from '@angular/core';
 
-import { FormData, Personal, Address }       from './formData.model';
+import { FormData, Personal, Address,Education }       from './formData.model';
 import { WorkflowService }                   from '../workflow/workflow.service';
 import { STEPS }                             from '../workflow/workflow.model';
 
@@ -9,6 +9,7 @@ export class FormDataService {
 
     private formData: FormData = new FormData();
     private isPersonalFormValid: boolean = false;
+    private isEducationFormValid: boolean = false;
     private isWorkFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
 
@@ -37,6 +38,40 @@ export class FormDataService {
         this.formData.email = data.email;
         // Validate Personal Step in Workflow
         this.workflowService.validateStep(STEPS.personal);
+    }
+
+    getEducation(): Education {
+        // Return the Personal data
+        var education: Education = {
+            level: this.formData.level,
+            field: this.formData.field,
+            university: this.formData.university,
+            graduateYear:this.formData.graduateYear,
+            averageScore:this.formData.averageScore,
+            hasIELTS:this.formData.hasIELTS,
+            IELTSListening:this.formData.IELTSListening,
+            IELTSSpeaking:this.formData.IELTSSpeaking,
+            IELTSReading:this.formData.IELTSReading,
+            IELTSWriting:this.formData.IELTSWriting,
+        };
+        return education;
+    }
+
+    setEducation(data: Education) {
+        // Update the education data only when the education Form had been validated successfully
+        this.isEducationFormValid =true;
+        this.formData.level = data.level;
+        this.formData.field = data.field;
+        this.formData.university = data.university;
+        this.formData.graduateYear = data.graduateYear;
+        this.formData.averageScore = data.averageScore;
+        this.formData.hasIELTS = data.hasIELTS;
+        this.formData.IELTSListening = data.IELTSListening;
+        this.formData.IELTSReading = data.IELTSReading;
+        this.formData.IELTSSpeaking = data.IELTSSpeaking;
+        this.formData.IELTSWriting = data.IELTSWriting;
+        // Validate education Step in Workflow
+        this.workflowService.validateStep(STEPS.education);
     }
 
     getWork() : string {

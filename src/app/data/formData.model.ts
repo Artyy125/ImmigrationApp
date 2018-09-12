@@ -9,8 +9,18 @@ export class FormData {
     zip: string = '';
     telegramId: string = '';
     whatsAppNumber: string = '';
-    phoneNumber: Int32Array;
+    phoneNumber: number;
     dateOfBirth: Date;
+    level: string = '';
+    field: string = '';
+    university: string = '';
+    graduateYear: string = '';
+    averageScore:number;
+    hasIELTS: boolean = false;
+    IELTSReading: number;
+    IELTSSpeaking: number;
+    IELTSListening: number;
+    IELTSWriting:number;
 
 
     clear() {
@@ -30,7 +40,7 @@ export class Personal {
     lastName : string = '';
     telegramId: string = '';
     whatsAppNumber: string = '';
-    phoneNumber: Int32Array;
+    phoneNumber: number;
     dateOfBirth: Date;
     email: string = '';
 }
@@ -40,4 +50,17 @@ export class Address {
     city: string = '';
     state: string = '';
     zip: string = '';
+}
+
+export class Education {
+    level: string = '';
+    field: string = '';
+    university: string = '';
+    graduateYear: string = '';
+    averageScore:number;
+    hasIELTS: boolean = false;
+    IELTSReading: number;
+    IELTSSpeaking: number;
+    IELTSListening: number;
+    IELTSWriting:number;
 }

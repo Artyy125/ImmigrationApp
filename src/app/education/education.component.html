@@ -1,0 +1,53 @@
+<form #educationForm="ngForm" class="editForm" novalidate>
+  <div class="tab-pane fade in active">
+      <h4 class="head text-center">{{title}}</h4>
+      <br/>
+      <div class='row'>
+          <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8'>
+              <div class="row">
+                  <div class='col-xs-12 col-sm-6'>
+                      <div class="form-group">
+                          <label class="control-label" for="firstname">Education Level</label>  
+                          <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname" type="text" placeholder="مقطع تحصیلی" [(ngModel)]="education.level">   
+                          <div class="alert alert-danger" [hidden]="firstname.valid">First Name is required</div>
+                      </div>
+                  </div>
+                  <div class='col-xs-12 col-sm-6'>
+                      <div class="form-group">
+                          <label class="control-label" for="lastname">Education Field</label>  
+                          <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname" type="text" placeholder="رشته تحصیلی" [(ngModel)]="education.field">
+                          <div class="alert alert-danger" [hidden]="lastname.valid">Last Name is required</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class='col-xs-12 col-sm-6'>
+                      <div class="form-group">
+                          <label class="control-label" for="dateOfBirth">Graduate Year</label>  
+                          <input class="form-control input-md" #dateOfBirth="ngModel" required id="dateOfBirth" name="dateOfBirth" type="date" placeholder="سال فارغ التحصیلی" [(ngModel)]="education.graduateYear">   
+                          <div class="alert alert-danger" [hidden]="dateOfBirth.valid">Date of Birth is required</div>
+                      </div>
+                  </div>
+                  <div class='col-xs-12 col-sm-6'>
+                      <div class="form-group">
+                          <label class="control-label" for="phoneNumber">Average Score</label>  
+                          <input class="form-control input-md" #phoneNumber="ngModel" required id="phoneNumber" name="phoneNumber" type="text" placeholder="معدل" [(ngModel)]="education.averageScore">
+                          <div class="alert alert-danger" [hidden]="phoneNumber.valid">Phone number is required</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class='col-xs-12 col-sm-6'>
+                      <div class="form-group">
+                          <label class="control-label" for="telegramId">Do you have a valid IELTS?</label>  
+                          <input class="form-control input-md" #telegramId="ngModel" id="telegramId" name="telegramId" type="radio" placeholder="آیا آیلتس منقضی نشده دارید؟" [(ngModel)]="education.hasIELTS">   
+                      </div>
+                  </div>
+                </div>
+              <div class="form-group text-center">
+                  <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!educationForm.valid" (click)="goToNext(educationForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+              </div>
+          </div>
+      </div>
+  </div>
+</form>
